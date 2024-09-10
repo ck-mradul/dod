@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Form, Input, Button, Checkbox, Typography } from "antd";
 import { useRouter } from "next/navigation";
-import { AppName } from "@/app/contants/SystemVariables";
+import { AppName } from "@/contants/SystemVariables";
 import "./page.scss";
 
 const { Title, Text, Link } = Typography;

@@ -2,7 +2,7 @@
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { Layout } from "antd";
-import AppHeader from "./ui/AppHeader";
+import AppHeader from "../../components/layout/AppHeader";
 
 export default function RootLayout({
   children,
@@ -11,9 +11,11 @@ export default function RootLayout({
 }>) {
   return (
     <ProtectedRoute>
-      <Layout>
+      <Layout className="!bg-white">
         <AppHeader />
-        <Layout.Content>{children}</Layout.Content>
+        <div className="lg:container bg-white">
+          <Layout.Content>{children}</Layout.Content>
+        </div>
       </Layout>
     </ProtectedRoute>
   );

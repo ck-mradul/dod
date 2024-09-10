@@ -7,11 +7,11 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/ui");
+    router.push("/orders");
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen ">
       <h1 className="text-3xl">Welcome to the Protected Home Page</h1>
     </div>
   );

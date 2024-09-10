@@ -7,6 +7,7 @@ const theme: ThemeConfig = {
     borderRadius: 2,
     colorFillSecondary: "#F6F6F6",
     fontFamily: '"Inter", sans-serif',
+    colorBgContainer: "#ffff",
   },
 };
 

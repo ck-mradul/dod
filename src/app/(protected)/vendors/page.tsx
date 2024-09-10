@@ -1,4 +1,5 @@
 // components/tabs/VendorsTab.tsx
+"use client";
 import React from "react";
 
 const VendorsTab: React.FC = () => (
