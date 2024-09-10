@@ -1,16 +1,16 @@
 "use client";
 import {
   FileDoneOutlined,
-  MenuOutlined,
   ShoppingOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
 import type { GetProps } from "antd";
 import { Button, Col, Input, Layout, Row, Tabs } from "antd";
 import React from "react";
-import OrdersTab from "../components/tabs/OrdersTab";
 import CatalogProductsTab from "../components/tabs/CatalogProductsTab";
+import OrdersTab from "../components/tabs/OrdersTab";
 import VendorsTab from "../components/tabs/VendorsTab";
+import CategoriesButton from "./CategoriesButton";
 
 type SearchProps = GetProps<typeof Input.Search>;
 
@@ -50,15 +50,7 @@ const AppHeader: React.FC = () => {
         </Col>
         <Col xs={16} sm={16} md={16} lg={16} xl={16}>
           <div className="flex align-middle">
-            <Button
-              type="primary"
-              icon={<MenuOutlined />}
-              className="mr-3 !shadow-none"
-              size="large"
-            >
-              Categories
-            </Button>
-
+            <CategoriesButton />
             <Search
               placeholder="Search..."
               onSearch={onSearch}
