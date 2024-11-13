@@ -1,1 +1,2 @@
-export const AppName = "OLM 2.0";
+export const AppName = "DOD";
+export const AUTH_LOCAL_STORAGE_KEY = "";

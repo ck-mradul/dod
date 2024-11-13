@@ -106,20 +106,21 @@ const CustomMenu = () => {
 
 const CategoriesButton: React.FC = () => {
   return (
-    <Dropdown
-      overlay={<CustomMenu />}
-      trigger={["click"]}
-      placement="bottomLeft"
-    >
-      <Button
-        type="primary"
-        icon={<MenuOutlined />}
-        className="mr-3 !shadow-none"
-        size="large"
-      >
-        Categories
-      </Button>
-    </Dropdown>
+    // <Dropdown
+    //   overlay={<CustomMenu />}
+    //   trigger={["click"]}
+    //   placement="bottomLeft"
+    // >
+    //   <Button
+    //     type="primary"
+    //     icon={<MenuOutlined />}
+    //     className="mr-3 !shadow-none"
+    //     size="large"
+    //   >
+    //     Categories
+    //   </Button>
+    // </Dropdown>
+    "test"
   );
 };
 

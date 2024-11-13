@@ -1,10 +1,11 @@
 "use client";
 
-// components/tabs/OrdersTab.tsx
 import React from "react";
-import { Breadcrumb, Table } from "antd";
 import type { TableColumnsType } from "antd";
 import SegmentHeading from "@/components/commonComponents/SegmentHeading";
+import Filters from "./_components/filters";
+import MyButton from "@/components/commonComponents/button";
+import DataTable from "./_components/DataTable";
 
 interface DataType {
   key: React.Key;
@@ -62,34 +63,55 @@ const data: DataType[] = [
 
 const OrdersTab: React.FC = () => {
   return (
-    <div className="w-full ">
-      <div className="flex !my-8 secondaryColor h-10 pl-5 ">
+    <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20 2xl:mx-40">
+      {/* <div className="flex !my-8 secondaryColor h-10 pl-5 ">
         <Breadcrumb
           className="!flex !items-center"
           items={[
             {
-              href: "",
+              href: "/",
               title: "Home",
             },
             {
-              href: "",
+              href: "/orders",
               title: "Order List",
             },
           ]}
         />
+      </div> */}
+      <div className="flex justify-between items-center ">
+        <SegmentHeading text="All Orders List" icon={false} />
+        <div className="d-flex flex-wrap">
+          <MyButton
+            className="ml-3 !shadow-none"
+            customLabel="Bulk Image Download"
+          />
+          <MyButton
+            className="ml-3 !shadow-none"
+            customLabel=" Export Report"
+          />
+          <MyButton className="ml-3 !shadow-none" customLabel="Add New" />
+        </div>
       </div>
-      <SegmentHeading text="All Orders List" icon={true} />
-      <Table
-        columns={columns}
-        expandable={{
-          expandedRowRender: (record) => (
-            <p style={{ margin: 0 }}>{record.description}</p>
-          ),
-          rowExpandable: (record) => record.name !== "Not Expandable",
-        }}
-        dataSource={data}
-        scroll={{ y: 240 }}
-      />
+      <Filters />
+      <div className="bg-white p-4 rounded-xl">
+        <DataTable
+        // debouncedSearch={debouncedSearch}
+        // assignId={assignId}
+        // tabId={tabId}
+        // formattedEndDate={formattedEndDate}
+        // formattedStartDate={formattedStartDate}
+        // sortByDesignerId={sortByDesignerId}
+        // id={tabIndex}
+        // activeTab={items?.find((item) => +item.key == tabIndex)}
+        // permissions={permissions}
+        // setSelectedRowKeysLocal={setSelectedRowKeysLocal}
+        // setTabId={setTabId}
+        // refetchTabs={refetchTabs}
+        // setSpecialCase={setSpecialCase}
+        // specialCase={specialCase}
+        />
+      </div>
     </div>
   );
 };

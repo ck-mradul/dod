@@ -7,7 +7,8 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/orders");
+    // router.push("/orders");
+    router.push("/dashboard");
   }, []);
 
   return (

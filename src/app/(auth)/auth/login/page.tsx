@@ -5,25 +5,21 @@ import { Form, Input, Button, Checkbox, Typography } from "antd";
 import { useRouter } from "next/navigation";
 import { AppName } from "@/contants/SystemVariables";
 import "./page.scss";
+import { useAuth } from "../auth";
 
 const { Title, Text, Link } = Typography;
 
 const LoginPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { login } = useAuth();
 
-  const onFinish = (values: { email: string; password: string }) => {
+  const onFinish = async (values: { email: string; password: string }) => {
     setLoading(true);
-
-    setTimeout(() => {
-      if (values.email === "admin@olm.com" && values.password === "admin") {
-        localStorage.setItem("auth", "true");
-        router.push("/");
-      } else {
-        alert("Invalid email or password");
-      }
-      setLoading(false);
-    }, 1000);
+    login(values);
+    // router.push("/");
+    setLoading(false);
+    // router.push("/orders");
   };
 
   return (
@@ -34,8 +30,8 @@ const LoginPage: React.FC = () => {
             <div className="text-center mb-8">
               <Title level={3}>{AppName || "Project Name"}</Title>
             </div>
-            <Text>Welcome back! 👋</Text>
-            <Title level={3} className="sign-in">
+            <Text className="mb-2">Welcome back! 👋</Text>
+            <Title level={3} className="sign-in mt-2">
               Sign In To Your Account
             </Title>
             <Form
@@ -44,6 +40,7 @@ const LoginPage: React.FC = () => {
               initialValues={{ remember: true }}
               onFinish={onFinish}
               className="login-form"
+              requiredMark={false}
             >
               <Form.Item
                 label="Your Email"
@@ -51,8 +48,9 @@ const LoginPage: React.FC = () => {
                 rules={[
                   { required: true, message: "Please input your email!" },
                 ]}
+                // requiredMark={false}
               >
-                <Input placeholder="Your Email" />
+                <Input placeholder="Your Email" className="login-input" />
               </Form.Item>
 
               <Form.Item
@@ -62,22 +60,27 @@ const LoginPage: React.FC = () => {
                   { required: true, message: "Please input your password!" },
                 ]}
               >
-                <Input.Password placeholder="Password" />
+                <Input.Password
+                  placeholder="Password"
+                  className="login-input"
+                />
               </Form.Item>
 
               <div className="flex justify-between items-center mb-4">
                 <Form.Item name="remember" valuePropName="checked" noStyle>
                   <Checkbox>Remember Me</Checkbox>
                 </Form.Item>
-                <Link href="/auth/forgot-password">Forgot Password?</Link>
+                <Link href="/auth/forgot-password" className="primary-color">
+                  Forgot Password?
+                </Link>
               </div>
-
               <Form.Item>
                 <Button
                   type="primary"
                   htmlType="submit"
                   loading={loading}
                   block
+                  style={{ height: "45px", boxShadow: "none" }}
                 >
                   Continue
                 </Button>
@@ -87,7 +90,9 @@ const LoginPage: React.FC = () => {
             {/* Sign Up */}
             <div className="text-center mt-4">
               <Text>Don&apos;t Have An Account? </Text>
-              <Link href="/auth/signup">Sign Up</Link>
+              <Link href="/auth/signup" className="primary-color">
+                Sign Up
+              </Link>
             </div>
           </div>
         </div>

@@ -3,9 +3,10 @@ import "@/assets/globals.scss";
 import { ConfigProvider } from "antd";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import theme from "../contants/theme/themeConfig";
+import AuthProvider from "./(auth)/auth/auth";
 
 export const metadata: Metadata = {
-  title: "OLM 2.0",
+  title: "DOD",
   description: "Welcome!",
   icons: {
     icon: "../assets/favicon.ico",
@@ -19,11 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <ConfigProvider theme={theme}>
-      <html lang="en">
-        <body>
-          <AntdRegistry>{children}</AntdRegistry>
-        </body>
-      </html>
+      <AuthProvider>
+        <html lang="en">
+          <body>
+            <AntdRegistry>{children}</AntdRegistry>
+          </body>
+        </html>
+      </AuthProvider>
     </ConfigProvider>
   );
 }

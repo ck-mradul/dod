@@ -3,7 +3,7 @@
 import React from "react";
 
 const VendorsTab: React.FC = () => (
-  <div>
+  <div className="pt-8">
     <h1>Vendors Content</h1>
   </div>
 );

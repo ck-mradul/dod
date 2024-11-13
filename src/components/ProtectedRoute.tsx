@@ -11,13 +11,12 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const auth = localStorage.getItem("auth");
-
     if (!auth) {
       router.push("/auth/login");
     } else {
       setIsLoading(false);
     }
-  }, [router]);
+  }, []);
 
   if (isLoading) {
     return (
