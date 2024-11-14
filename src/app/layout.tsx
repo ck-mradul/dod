@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "DOD",
   description: "Welcome!",
   icons: {
-    icon: "../assets/favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 
@@ -22,6 +22,9 @@ export default function RootLayout({
     <ConfigProvider theme={theme}>
       <AuthProvider>
         <html lang="en">
+          <head>
+            <link rel="shortcut icon" href="/static/favicon.ico" />
+          </head>
           <body>
             <AntdRegistry>{children}</AntdRegistry>
           </body>

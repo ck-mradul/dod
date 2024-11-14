@@ -356,7 +356,7 @@ const OrderDetail = () => {
       },
     ],
   };
-  const isValidUrl = (string: any) => {
+  const isValidUrl = (string: string) => {
     try {
       new URL(string);
       return true;
@@ -373,7 +373,7 @@ const OrderDetail = () => {
           <Row className=" justify-between ">
             <Col xs={24} sm={24} md={12}>
               <strong className="text-xl mb-2 ">Assigned Designer</strong>
-              <Row className="justify-around border-2 rounded-md border-gray-200 p-4 my-4 mr-4">
+              <Row className=" border-2 rounded-md border-gray-100 p-4 my-4 mr-4">
                 <ListAvatar
                   iconImage={<UserOutlined />}
                   titleHeading="Designer Name"
@@ -389,7 +389,7 @@ const OrderDetail = () => {
 
             <Col xs={24} sm={24} md={12}>
               <strong className="text-xl mb-2"> Customer Information</strong>
-              <Row className="justify-around border-2 rounded-md border-gray-200 p-4 my-4 mr-4">
+              <Row className=" border-2 rounded-md border-gray-100 p-4 my-4 mr-4">
                 <ListAvatar
                   iconImage={<UserOutlined />}
                   titleHeading={"abc"}

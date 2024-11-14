@@ -1,21 +1,18 @@
 "use client";
 import type { GetProps } from "antd";
-import { Avatar, Dropdown, Input, Layout, Menu, Row } from "antd";
+import { Avatar, Dropdown, Input, Image, Menu, Row } from "antd";
 import React from "react";
 import NavigationHandler from "@/components/layout/navigation/NavigationHandler";
 import { useAuth } from "@/app/(auth)/auth/auth";
 import { FormOutlined, UserOutlined } from "@ant-design/icons";
-import logo from "../../assets/images/logo.png";
-import Image from "next/image";
-import { clsx } from "yet-another-react-lightbox";
+import * as yetAnotherReactLightbox from "yet-another-react-lightbox";
 import Link from "next/link";
+import { toAbsoluteUrl } from "@/app/core/helperMethods";
 
 type SearchProps = GetProps<typeof Input.Search>;
 
-const { Header } = Layout;
+// const { Header } = Layout;
 const { Search } = Input;
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 
 const AppHeader: React.FC = () => {
   const { logout } = useAuth();
@@ -26,7 +23,7 @@ const AppHeader: React.FC = () => {
 
   const menu = (
     <Menu className="w-[300px]">
-      <Menu.Item className="menu-header text-center p-0">
+      <Menu.Item className="text-center  p-0">
         <div className="menu-content block align-items-center">
           <Avatar
             style={{
@@ -38,7 +35,7 @@ const AppHeader: React.FC = () => {
           >
             {"L"}
           </Avatar>
-          <div className="d-block">
+          <div className="block">
             <div className="fw-bolder d-block align-items-center justify-between fs-5">
               {"Name"}
             </div>
@@ -75,11 +72,12 @@ const AppHeader: React.FC = () => {
       <Row className=" !bg-Indigo !z-50 !w-full p-2 justify-between ">
         <a href="/">
           <Image
-            width={280}
-            height={100}
-            src={logo}
+            width={300}
+            height={80}
+            src={toAbsoluteUrl("/static/logo.png")}
             className="justify-start"
             alt="DOD LOGO"
+            preview={false}
           />
         </a>
         <div className="mt-4">
@@ -106,7 +104,7 @@ const AppHeader: React.FC = () => {
             // }}
           >
             <div
-              className={clsx("cursor-pointer symbol")}
+              className={yetAnotherReactLightbox.clsx("cursor-pointer symbol")}
               data-of-menu-trigger="{default: 'click'}"
               data-of-menu-attach="parent"
               data-of-menu-placement="bottom-end"

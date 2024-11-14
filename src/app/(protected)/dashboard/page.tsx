@@ -112,7 +112,7 @@ const Dashboard = () => {
             value={dashboardData?.awating_order || "0"}
             icon={<ShoppingCartOutlined style={{ fontSize: "28px" }} />}
             subLitle="Waiting for Approval Orders list"
-            url="/u/ordersPage/ordersListing"
+            url={"/orders"}
           />
         </Col>
 
