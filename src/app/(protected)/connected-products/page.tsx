@@ -1,7 +1,7 @@
 "use client";
 
 import SegmentHeading from "@/components/commonComponents/SegmentHeading";
-import { Button, Input, Table, Tag, Tooltip } from "antd";
+import { Button, Checkbox, Input, Table, Tag, Tooltip } from "antd";
 import React from "react";
 
 const ConnectProducts = () => {
@@ -188,6 +188,383 @@ const ConnectProducts = () => {
     },
   ];
 
+  const expandedRowRender = (product: any) => {
+    const variants = [
+      {
+        id: 1,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215384743",
+        title: "18x24 Inch / 2 Pets",
+        sku: "CanvsWrp-ImgWrp-18x24-11-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "270.00",
+        maping_status: false,
+      },
+      {
+        id: 2,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215417511",
+        title: "18x24 Inch / 3 Pets",
+        sku: "CanvsWrp-ImgWrp-18x24-12-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "320.00",
+        maping_status: false,
+      },
+      {
+        id: 3,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215450279",
+        title: "18x24 Inch / 4 Pets",
+        sku: "CanvsWrp-ImgWrp-18x24-13-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "370.00",
+        maping_status: false,
+      },
+      {
+        id: 4,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215483047",
+        title: "18x24 Inch / 5 Pets",
+        sku: "CanvsWrp-ImgWrp-18x24-14-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "420.00",
+        maping_status: false,
+      },
+      {
+        id: 5,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215515815",
+        title: "24x36 Inch / 1 Pet",
+        sku: "CanvsWrp-ImgWrp-24x36-15-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "320.00",
+        maping_status: false,
+      },
+      {
+        id: 6,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215548583",
+        title: "24x36 Inch / 2 Pets",
+        sku: "CanvsWrp-ImgWrp-24x36-16-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "370.00",
+        maping_status: false,
+      },
+      {
+        id: 7,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215581351",
+        title: "24x36 Inch / 3 Pets",
+        sku: "CanvsWrp-ImgWrp-24x36-17-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "420.00",
+        maping_status: false,
+      },
+      {
+        id: 8,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215614119",
+        title: "24x36 Inch / 4 Pets",
+        sku: "CanvsWrp-ImgWrp-24x36-18-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "470.00",
+        maping_status: false,
+      },
+      {
+        id: 9,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215646887",
+        title: "24x36 Inch / 5 Pets",
+        sku: "CanvsWrp-ImgWrp-24x36-19-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "520.00",
+        maping_status: false,
+      },
+      {
+        id: 12458,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699214860455",
+        title: "Digital Only / 1 Pet",
+        sku: "Digital-1-Pet-1",
+        inventory_quantity: -1,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "56.00",
+        maping_status: false,
+      },
+      {
+        id: 12460,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699214893223",
+        title: "Digital Only / 2 Pets",
+        sku: "Digital-2-Pets-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "98.00",
+        maping_status: false,
+      },
+      {
+        id: 12462,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699214925991",
+        title: "Digital Only / 3 Pets",
+        sku: "Digital-3-Pets-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "140.00",
+        maping_status: false,
+      },
+      {
+        id: 12464,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699214958759",
+        title: "Digital Only / 4 Pets",
+        sku: "Digital-4-Pets-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "124.00",
+        maping_status: false,
+      },
+      {
+        id: 12466,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699214991527",
+        title: "Digital Only / 5 Pets",
+        sku: "Digital-5-Pets-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "182.00",
+        maping_status: false,
+      },
+      {
+        id: 12468,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215024295",
+        title: "8x10 Inch / 1 Pet",
+        sku: "CanvsWrp-ImgWrp-8x10-0-1",
+        inventory_quantity: -1,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "120.00",
+        maping_status: false,
+      },
+      {
+        id: 12470,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215057063",
+        title: "8x10 Inch / 2 Pets",
+        sku: "CanvsWrp-ImgWrp-8x10-1-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "170.00",
+        maping_status: false,
+      },
+      {
+        id: 12473,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215089831",
+        title: "8x10 Inch / 3 Pets",
+        sku: "CanvsWrp-ImgWrp-8x10-2-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "220.00",
+        maping_status: false,
+      },
+      {
+        id: 12475,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215122599",
+        title: "8x10 Inch / 4 Pets",
+        sku: "CanvsWrp-ImgWrp-8x10-3-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "270.00",
+        maping_status: false,
+      },
+      {
+        id: 12477,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215155367",
+        title: "8x10 Inch / 5 Pets",
+        sku: "CanvsWrp-ImgWrp-8x10-4-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "320.00",
+        maping_status: false,
+      },
+      {
+        id: 12479,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215188135",
+        title: "12x18 Inch / 1 Pet",
+        sku: "CanvsWrp-ImgWrp-12x18-5-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "180.00",
+        maping_status: false,
+      },
+      {
+        id: 12481,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215220903",
+        title: "12x18 Inch / 2 Pets",
+        sku: "CanvsWrp-ImgWrp-12x18-6-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "230.00",
+        maping_status: false,
+      },
+      {
+        id: 12483,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215253671",
+        title: "12x18 Inch / 3 Pets",
+        sku: "CanvsWrp-ImgWrp-12x18-7-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "280.00",
+        maping_status: false,
+      },
+      {
+        id: 12485,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215286439",
+        title: "12x18 Inch / 4 Pets",
+        sku: "CanvsWrp-ImgWrp-12x18-8-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "330.00",
+        maping_status: false,
+      },
+      {
+        id: 12487,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215319207",
+        title: "12x18 Inch / 5 Pets",
+        sku: "CanvsWrp-ImgWrp-12x18-9-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "380.00",
+        maping_status: false,
+      },
+      {
+        id: 12489,
+        tp_product_id: "gid://shopify/Product/6647077273767",
+        tp_variant_id: "gid://shopify/ProductVariant/39699215351975",
+        title: "18x24 Inch / 1 Pet",
+        sku: "CanvsWrp-ImgWrp-18x24-10-1",
+        inventory_quantity: 0,
+        image_url:
+          "https://cdn.shopify.com/s/files/1/0055/0957/8803/products/Cartoondogstyle.jpg?v=1618673915",
+        product_id: 1,
+        price: "220.00",
+        maping_status: false,
+      },
+    ];
+
+    const subColumns = [
+      {
+        title: "",
+        dataIndex: "id",
+        key: "id",
+        render: (id: any) => (
+          <Checkbox
+          // checked={selectedVariantIds.includes(id) || selectedRowKeys.includes(product.id)}
+          // onChange={(e) => handleVariantSelect(product.id, id, e.target.checked)}
+          />
+        ),
+      },
+      { title: "Title", dataIndex: "title", key: "title" },
+      { title: "SKU", dataIndex: "sku", key: "sku" },
+      { title: "Price", dataIndex: "price", key: "price" },
+      {
+        title: "Inventory Quantity",
+        dataIndex: "inventory_quantity",
+        key: "inventory_quantity",
+      },
+    ];
+
+    return (
+      <Table
+        // loading={varientLoading}
+        scroll={{ x: "auto" }}
+        columns={subColumns}
+        dataSource={variants}
+        pagination={false}
+        rowKey="id"
+      />
+    );
+  };
+
+  const rowSelection: TableProps<DataType>["rowSelection"] = {
+    onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
+      console.log(
+        `selectedRowKeys: ${selectedRowKeys}`,
+        "selectedRows: ",
+        selectedRows
+      );
+    },
+    getCheckboxProps: (record: DataType) => ({
+      disabled: record.name === "Disabled User",
+      name: record.name,
+    }),
+  };
+
   return (
     <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20 2xl:mx-40">
       <SegmentHeading text={`My Products`} icon={false} />
@@ -297,11 +674,18 @@ const ConnectProducts = () => {
         </div>
       </div>
       <Table
-        // rowSelection={rowSelection}
         dataSource={filteredDataSource}
+        rowSelection={rowSelection}
         columns={columns}
         // loading={isLoading || isFetching}
         rowKey="id"
+        expandable={{
+          // expandedRowRender: (record) => (
+          //   <p style={{ margin: 0 }}>{record.description}</p>
+          // ),
+          expandedRowRender,
+          rowExpandable: (record) => record.name !== "Not Expandable",
+        }}
         // expandable={{
         //   expandedRowRender,
         //   onExpand: (expanded, record) => {
@@ -317,7 +701,7 @@ const ConnectProducts = () => {
           showTotal: (total, range) =>
             `${range[0]}-${range[1]} of ${total} items`,
           pageSizeOptions: ["10", "20", "50", "100"],
-          onChange: (page, pageSize) => {
+          onChange: () => {
             // setPage(page);
             // setPageSize(pageSize);
           },

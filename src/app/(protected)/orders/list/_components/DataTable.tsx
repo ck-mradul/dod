@@ -1,8 +1,8 @@
 import { BankOutlined } from "@ant-design/icons";
-import { Table, Tooltip } from "antd";
+import { Checkbox, Table, Tooltip } from "antd";
 import { ColumnsType } from "antd/es/table";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const DataTable = () => {
   const formatDate = (dateString: string): string => {
@@ -565,6 +565,68 @@ const DataTable = () => {
       ],
     },
   ];
+  const [selectedRowKeys, setSelectedRowKeys] = useState<number[]>([]);
+  const [selectedVariantKeys, setSelectedVariantKeys] = useState<{
+    [key: number]: number[];
+  }>({});
+
+  const expandedRowRender = (record: Order) => {
+    const columns: ColumnsType<Order["order_item"][0]> = [
+      {
+        title: "",
+        dataIndex: "id",
+        key: "id",
+        render: (id) => (
+          <Checkbox
+            checked={(selectedVariantKeys[record.id] || []).includes(id)}
+            // onChange={(e) =>
+            //   handleVariantSelect(record.id, id, e.target.checked)
+            // }
+          />
+        ),
+      },
+      {
+        title: "Images",
+        dataIndex: "image_url",
+        key: "image_url",
+        render: (image_url: any) => (
+          <img
+            src={image_url}
+            alt="Product"
+            style={{ width: "40px", height: "40px" }}
+          />
+        ),
+      },
+      {
+        title: "Product Name",
+        dataIndex: "name",
+        key: "name",
+      },
+      {
+        title: "Cost",
+        dataIndex: "price",
+        key: "price",
+        render: (price: any) => parseFloat(price).toFixed(2),
+      },
+      {
+        title: "Status",
+        dataIndex: "status_name",
+        key: "status_name",
+      },
+    ];
+
+    return (
+      <Table
+        columns={columns}
+        dataSource={record.order_item}
+        pagination={false}
+        rowKey="id"
+        size="small"
+        tableLayout="auto"
+        bordered
+      />
+    );
+  };
 
   return (
     <Table
@@ -591,13 +653,13 @@ const DataTable = () => {
         className: "custom-pagination",
       }}
       // loading={isLoading}
-      // rowSelection={{
-      //   type: "checkbox",
-      //   selectedRowKeys: selectedRowKeys,
-      //   onChange: handleRowSelect,
-      // }}
+      rowSelection={{
+        type: "checkbox",
+        //   selectedRowKeys: selectedRowKeys,
+        //   onChange: handleRowSelect,
+      }}
       rowKey={(record) => record.id.toString()}
-      // expandedRowRender={expandedRowRender}
+      expandedRowRender={expandedRowRender}
       // onRow={(record) => ({
       //   onClick: () => setCurrentOrderId(record.id),
       // })}

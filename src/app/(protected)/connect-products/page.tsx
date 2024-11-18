@@ -1,7 +1,7 @@
 "use client";
 
 import SegmentHeading from "@/components/commonComponents/SegmentHeading";
-import { Button, Input, Table, Tag, Tooltip } from "antd";
+import { Button, Checkbox, Input, Table, Tag, Tooltip } from "antd";
 import React from "react";
 
 const ConnectProducts = () => {
@@ -109,7 +109,6 @@ const ConnectProducts = () => {
       },
       render: (price: number) => parseFloat(price).toFixed(2),
     },
-
     {
       title: "Total Inventory Quantity",
       dataIndex: "total_inventory_quantity",
@@ -725,6 +724,97 @@ const ConnectProducts = () => {
     },
   ];
 
+  const expandedRowRender = (product: any) => {
+    const subColumns = [
+      {
+        title: "",
+        dataIndex: "id",
+        key: "id",
+        render: (id: any) => (
+          <Checkbox
+            // checked={selectedVariantKeys.includes(id)}
+            // onChange={(e) =>
+            //   handleVariantSelect(product.id, id, e.target.checked)
+            // }
+            disabled={
+              product.variants.find((variant: any) => variant.id === id)
+                .maping_status
+              // product.variants.find((variant: any) => variant.id === id).maping_status ||
+              // product.variants.find((variant: any) => !variant.sku)
+            }
+          />
+        ),
+      },
+      {
+        title: "Title",
+        dataIndex: "title",
+        key: "title",
+      },
+      {
+        title: "SKU",
+        dataIndex: "sku",
+        key: "sku",
+      },
+      {
+        title: "Product Status",
+        dataIndex: "product_status",
+        key: "product_status",
+        render: (_: string, record: any) => {
+          let statusText = "Not Mapped";
+          let color = "default";
+          let tooltipText = "This product has not been mapped yet.";
+
+          if (record.maping_status) {
+            statusText = "Variant Mapped";
+            color = "green";
+            tooltipText = "Variant successfully mapped.";
+          }
+          // else if (!record.sku) {
+          //   statusText = 'SKUs Missing'
+          //   color = 'orange'
+          //   tooltipText = 'Variant is missing SKUs, cannot be mapped.'
+          // }
+
+          return (
+            <Tooltip title={tooltipText}>
+              <Tag color={color}>{statusText}</Tag>
+            </Tooltip>
+          );
+        },
+      },
+      { title: "Price", dataIndex: "price", key: "price" },
+      {
+        title: "Inventory Quantity",
+        dataIndex: "inventory_quantity",
+        key: "inventory_quantity",
+      },
+    ];
+
+    return (
+      <Table
+        scroll={{ x: "auto" }}
+        columns={subColumns}
+        dataSource={product?.variants}
+        pagination={false}
+        rowKey="id"
+      />
+    );
+  };
+
+  const rowSelection: TableProps<DataType>["rowSelection"] = {
+    onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
+      console.log(
+        `selectedRowKeys: ${selectedRowKeys}`,
+        "selectedRows: ",
+        selectedRows
+      );
+    },
+    getCheckboxProps: (record: DataType) => ({
+      disabled: record.name === "Disabled User", // Column configuration not to be checked
+      name: record.name,
+    }),
+  };
+
   return (
     <div className="mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20 2xl:mx-40">
       <SegmentHeading text={`Connect Products`} icon={false} />
@@ -794,12 +884,12 @@ const ConnectProducts = () => {
         dataSource={shopifyVariants}
         columns={columns}
         // loading={isLoading || isFetching}
-        // rowSelection={rowSelection}
+        rowSelection={rowSelection}
         // rowKey="id"
         // rowClassName={rowClassName}
-        // expandable={{
-        //   expandedRowRender,
-        // }}
+        expandable={{
+          expandedRowRender,
+        }}
         pagination={{
           current: 1,
           // current: currentPage,

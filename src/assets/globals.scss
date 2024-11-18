@@ -97,3 +97,10 @@ body {
   border: 1px solid #a3d7f7 !important;
   border-radius: 10px !important;
 }
+
+.ant-table-row.ant-table-row-selected {
+  & .ant-table-cell {
+    // background: #d2eeff !important;
+    background: #c7d1d9 !important;
+  }
+}

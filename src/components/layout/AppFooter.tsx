@@ -17,8 +17,8 @@ const AppFooter: React.FC = () => {
   return (
     <Footer className=" !bg-white !w-full ">
       <div className="flex justify-between">
-        <div>Digital On Demand 2024©Dod</div>
-        <div> 2024©Dod</div>
+        <div>Digital On Demand 2024 ©Dod</div>
+        <div> 2024 ©Dod</div>
       </div>
     </Footer>
   );

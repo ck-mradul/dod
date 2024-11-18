@@ -1,28 +1,18 @@
 import { useState } from "react";
-import {
-  Button,
-  Col,
-  DatePicker,
-  Dropdown,
-  Input,
-  Menu,
-  Row,
-  Select,
-  Space,
-} from "antd";
+import { DatePicker, Input, Select, Space } from "antd";
 import dayjs, { Dayjs } from "dayjs";
 import { useDebounce } from "@/app/core/helperMethods";
 import SortByDesignerSelect from "@/components/commonComponents/SortByDesigner";
-import { DownOutlined } from "@ant-design/icons";
 
 const { Search } = Input;
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
 const designers = [
-  { id: 1, Value: "one", name: "one" },
-  { id: 2, Value: "two ", name: "two" },
-  { id: 3, Value: "three", name: "three" },
+  { id: 1, Value: "New", name: "New" },
+  { id: 2, Value: "In Production", name: "In Production" },
+  { id: 3, Value: "Shipping", name: "Shipping" },
+  { id: 4, Value: "Complete", name: "Complete" },
 ];
 
 const statusesT = [
@@ -127,11 +117,11 @@ const Filters = () => {
           </div>
           <div className="flex flex-col">
             <label>
-              <h4 className="mb-1">Sorting</h4>
+              <h4 className="mb-1">Sorting Status</h4>
             </label>
             <SortByDesignerSelect designers={designers} />
           </div>
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <label>
               <h4 className="mb-1">Assign To</h4>
             </label>
@@ -146,8 +136,8 @@ const Filters = () => {
                 </Option>
               ))}
             </Select>
-          </div>
-          <div className="flex flex-col">
+          </div> */}
+          {/* <div className="flex flex-col">
             <label>
               <h4 className="mb-1">Change status</h4>
             </label>
@@ -162,7 +152,7 @@ const Filters = () => {
                 </Option>
               ))}
             </Select>
-          </div>
+          </div> */}
         </Space>
       </div>
     </div>

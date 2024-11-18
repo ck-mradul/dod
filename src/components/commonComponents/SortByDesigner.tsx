@@ -75,7 +75,7 @@ const SortByDesignerSelect: React.FC<SortByDesignerSelectProps> = ({
   return (
     <Select
       style={{ width: "100%" }}
-      placeholder="Sort By Designer"
+      placeholder="Sort By Status"
       allowClear
       // onChange={handleSortByDesigner}
       // value={selectedDesigner}

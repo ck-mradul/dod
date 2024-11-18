@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox, Typography } from "antd";
+import { Form, Input, Button, Checkbox, Typography, Image } from "antd";
 import { useRouter } from "next/navigation";
 import { AppName } from "@/contants/SystemVariables";
 import "./page.scss";
 import { useAuth } from "../auth";
+import { toAbsoluteUrl } from "@/app/core/helperMethods";
 
 const { Title, Text, Link } = Typography;
 
@@ -29,6 +30,14 @@ const LoginPage: React.FC = () => {
           <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-md mx-auto">
             <div className="text-center mb-8">
               <Title level={3}>{AppName || "Project Name"}</Title>
+              {/* <Image
+                width={300}
+                height={80}
+                src={toAbsoluteUrl("/static/logo.png")}
+                className="justify-start"
+                alt="DOD LOGO"
+                preview={false}
+              /> */}
             </div>
             <Text className="mb-2">Welcome back! 👋</Text>
             <Title level={3} className="sign-in mt-2">
