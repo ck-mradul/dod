@@ -94,7 +94,7 @@ const OrdersTab: React.FC = () => {
         </div>
       </div>
       <Filters />
-      <div className="bg-white p-4 rounded-xl">
+      <div className="bg-white  border-x border-y mb-2 ">
         <DataTable
         // debouncedSearch={debouncedSearch}
         // assignId={assignId}

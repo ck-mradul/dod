@@ -84,44 +84,45 @@ const Filters = () => {
 
   return (
     <div className="mb-6 ">
+      <p className="mb-2 text-[18px] leading-[24px]">Filters</p>
       <div className="p-4 rounded-xl bg-white">
-        <p className="mb-2 text-[18px] leading-[24px]">Filters</p>
-        <Space className="flex">
-          <div className="flex flex-col">
-            <label>
-              <h4 className="mb-1 ">Search By ID</h4>
-            </label>
-            <Search
-              className="w-100"
-              placeholder="Order ID"
-              value={search}
-              onChange={handleSearchChange}
-              allowClear
-              type="pro"
-              // enterButton="Search"
-            />
-          </div>
-          <div className="flex flex-col ">
-            <label>
-              <h4 className="mb-1">Filter By Date</h4>
-            </label>
-            <RangePicker
-              key={defaultDates.toString()}
-              value={defaultDates}
-              format="YYYY-MM-DD"
-              onChange={(date) => handleDateChange(date as [Dayjs, Dayjs])}
-              onCalendarChange={(dates) => {
-                if (!dates) handleDateChange(null);
-              }}
-            />
-          </div>
-          <div className="flex flex-col">
-            <label>
-              <h4 className="mb-1">Sorting Status</h4>
-            </label>
-            <SortByDesignerSelect designers={designers} />
-          </div>
-          {/* <div className="flex flex-col">
+        <Space className="flex justify-start w-full">
+          <>
+            <div className="flex flex-col mr-10">
+              <label>
+                <h4 className="mb-1">Search By ID</h4>
+              </label>
+              <Search
+                className="w-100"
+                placeholder="Order ID"
+                value={search}
+                onChange={handleSearchChange}
+                allowClear
+                type="pro"
+                // enterButton="Search"
+              />
+            </div>
+            <div className="flex flex-col mr-10">
+              <label>
+                <h4 className="mb-1">Filter By Date</h4>
+              </label>
+              <RangePicker
+                key={defaultDates.toString()}
+                value={defaultDates}
+                format="YYYY-MM-DD"
+                onChange={(date) => handleDateChange(date as [Dayjs, Dayjs])}
+                onCalendarChange={(dates) => {
+                  if (!dates) handleDateChange(null);
+                }}
+              />
+            </div>
+            <div className="flex flex-col mr-10">
+              <label>
+                <h4 className="mb-1">Sorting Status</h4>
+              </label>
+              <SortByDesignerSelect designers={designers} />
+            </div>
+            {/* <div className="flex flex-col">
             <label>
               <h4 className="mb-1">Assign To</h4>
             </label>
@@ -137,7 +138,7 @@ const Filters = () => {
               ))}
             </Select>
           </div> */}
-          {/* <div className="flex flex-col">
+            {/* <div className="flex flex-col">
             <label>
               <h4 className="mb-1">Change status</h4>
             </label>
@@ -153,6 +154,7 @@ const Filters = () => {
               ))}
             </Select>
           </div> */}
+          </>
         </Space>
       </div>
     </div>

@@ -35,7 +35,7 @@ const Dashboard = () => {
             url={"/orders"}
           />
         </Col>
-        <Col
+        {/* <Col
           className="gutter-row"
           xs={24}
           sm={24}
@@ -57,8 +57,8 @@ const Dashboard = () => {
 
             // url={isAdmin ? "apps/stores?s=2" : "/u/connectStore?s=2"}
           />
-        </Col>
-        <Col
+        </Col> */}
+        {/* <Col
           className="gutter-row"
           xs={24}
           sm={24}
@@ -74,12 +74,12 @@ const Dashboard = () => {
             subLitle="Store Manager list"
             url={"/orders"}
           />
-        </Col>
-      </Row>
+        </Col> */}
+        {/* </Row>
       <Row
         gutter={{ xs: 8, sm: 16, md: 24, lg: 30, xl: 30, xxl: 30 }}
         // className="justify-between"
-      >
+      > */}
         <Col
           className="gutter-row"
           xs={24}
@@ -97,8 +97,7 @@ const Dashboard = () => {
             url="/u/ordersPage/ordersListing?new_tab"
           />
         </Col>
-
-        <Col
+        {/* <Col
           className="gutter-row"
           xs={24}
           sm={24}
@@ -114,8 +113,7 @@ const Dashboard = () => {
             subLitle="Waiting for Approval Orders list"
             url={"/orders"}
           />
-        </Col>
-
+        </Col> */}
         <Col
           className="gutter-row"
           xs={24}

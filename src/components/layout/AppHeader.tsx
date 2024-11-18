@@ -4,7 +4,7 @@ import { Avatar, Dropdown, Input, Image, Menu, Row } from "antd";
 import React from "react";
 import NavigationHandler from "@/components/layout/navigation/NavigationHandler";
 import { useAuth } from "@/app/(auth)/auth/auth";
-import { FormOutlined, UserOutlined } from "@ant-design/icons";
+import { FormOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import * as yetAnotherReactLightbox from "yet-another-react-lightbox";
 import Link from "next/link";
 import { toAbsoluteUrl } from "@/app/core/helperMethods";
@@ -83,18 +83,24 @@ const AppHeader: React.FC = () => {
         <div className="mt-4">
           <NavigationHandler />
         </div>
-        <div className="mt-5 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-24 2xl:w-1/6 ">
-          <Search placeholder="Search..." onSearch={onSearch} />
+        <div className="mt-6 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-[150px] 2xl:w-1/6 ">
+          <Search
+            placeholder="Search..."
+            onSearch={onSearch}
+            style={{
+              borderRadius: "10px",
+              overflow: "hidden",
+            }}
+          />
         </div>
-
         {/* <div className="hidden 2xl:block">
           <Search placeholder="Search..." onSearch={onSearch} size="large" />
         </div>
 
         <div className="hidden lg:block">
-          <SearchOutlined className="text-white cursor-pointer mt-6" style={} />
+          <SearchOutlined className="text-white cursor-pointer mt-6" />
         </div> */}
-        <div className="mt-4">
+        <div className="mt-6">
           <Dropdown
             overlay={menu}
             trigger={["click"]}
